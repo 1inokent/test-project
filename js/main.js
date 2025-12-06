@@ -138,8 +138,8 @@ function hideNoResultsMessage() {
 
 function showLoadingState() {
   state.isLoading = true;
-  coursesList.innerHTML = '<div class="loading">Загрузка курсов</div>';
   loadMoreBtn.style.display = 'none';
+  coursesList.innerHTML = '<div class="loading">Загрузка курсов</div>';
 }
 
 function hideLoadingState() {
