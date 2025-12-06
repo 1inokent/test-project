@@ -1,4 +1,4 @@
-const mockCourses = Array.from({ length: 15 }, (_, index) => {
+const mockCourses = Array.from({ length: 22 }, (_, index) => {
   const id = index + 1;
   const avatarIndex = (index % 9) + 1;
 
@@ -46,10 +46,20 @@ const mockCourses = Array.from({ length: 15 }, (_, index) => {
   };
 });
 
-export function fetchCourses(limit = 6, offset = 0) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mockCourses.slice(offset, offset + limit));
-    }, 600);
-  });
-}
+const loadData = (dataPromise) => {
+  return dataPromise
+    .then((data) => ({ success: true, data }))
+    .catch((error) => ({ success: false, error }));
+};
+
+const fetchAllCourses = () => {
+  return loadData(
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([...mockCourses]);
+      }, 600);
+    }),
+  );
+};
+
+export { fetchAllCourses };
