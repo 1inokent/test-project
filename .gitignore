@@ -3,5 +3,3 @@ node_modules/
 *.log
 .vscode/
 .idea/
-css/styles.css
-css/styles.css.map
